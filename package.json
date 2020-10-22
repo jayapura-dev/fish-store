@@ -1,0 +1,25 @@
+{
+  "name": "fish-store",
+  "version": "1.0.0",
+  "description": "Market for Fresh Fish",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js -e js,hbs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayapura-dev/fish-store.git"
+  },
+  "author": "Michael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jayapura-dev/fish-store/issues"
+  },
+  "homepage": "https://github.com/jayapura-dev/fish-store#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.10.9",
+    "nodemon": "^2.0.6"
+  }
+}
