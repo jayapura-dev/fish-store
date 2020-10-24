@@ -4,7 +4,8 @@
   "description": "Market for Fresh Fish",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js -e js,hbs"
+    "start": "node server.js",
+    "dev": "nodemon server.js -e js,hbs"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,11 @@
   },
   "homepage": "https://github.com/jayapura-dev/fish-store#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
     "mongoose": "^5.10.9",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "validator": "^13.1.17"
   }
 }

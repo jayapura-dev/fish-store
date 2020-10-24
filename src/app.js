@@ -22,9 +22,7 @@ app.get('', (req, res) => {
 })
 
 // Server RUN PORT
-app.listen(port, () => {
-  console.log(`App Running on Port ${port}...`);
-});
+module.exports = app;
 
 
 
