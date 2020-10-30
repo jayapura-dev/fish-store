@@ -2,27 +2,52 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
-const app = express();
-const port = process.env.PORT || 5000
+require('./db/mongoose')
 
-const public = path.join(__dirname, './public/backend/');
-const viewPath = path.join(__dirname, './templates/views');
-const partialsPath = path.join(__dirname, './templates/partials');
+// Routes
+const distrikRoutes = require('./routes/distrikRoute')
+const kabupatenRoutes = require('./routes/kabupatenRoute')
+const DashboardRoutes = require('./routes/dashboardRoute')
+const AuthRoutes = require('./routes/authRoute')
+const KampungRoutes = require('./routes/kampungRoute')
 
-app.set('view engine', 'hbs');
-app.set('views', viewPath);
-hbs.registerPartials(partialsPath);
+// Initilize express frame
+const app = express()
 
-app.use(express.static(public));
+// Port Config
+const port = process.env.PORT || 8000
 
-app.get('', (req, res) => {
-    res.render('overview', {
-        title: 'FS | Overview'
-    })
+// Set Static assets
+const public = path.join(__dirname, '../public')
+const viewPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
+
+// Set View Path
+app.set('view engine', 'hbs')
+app.set('views', viewPath)
+
+// set View parent Page
+hbs.registerPartials(partialsPath)
+
+app.use(express.static(public))
+app.use(express.json())
+
+app.use(
+    distrikRoutes,
+    kabupatenRoutes,
+    DashboardRoutes,
+    AuthRoutes,
+    KampungRoutes
+)
+
+// app.use(distrikRoutes)
+// app.use(kabupatenRoutes)
+// app.use(DashboardRoutes)
+// app.use(AuthRoutes)
+
+app.listen(port, () => {
+    console.log(`App Running on Port ${port}...`);
 })
-
-// Server RUN PORT
-module.exports = app;
 
 
 

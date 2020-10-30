@@ -1,12 +1,9 @@
-const mongoose = require('mangoose');
-const validator = require('validator');
+const mongoose = require('mongoose')
 
-const Kabupaten = mongoose.model('Kabupaten', {
+const kabupatenSchema = new mongoose.Schema({
     kode: {
         type: String,
-        required: [true, 'Masukan Kode Wilayah'],
-        maxlength: 4
-        minlength: 2
+        required: [true, 'Masukan Kode Wilayah']
     },
     nama_kab: {
         type: String,
@@ -14,5 +11,13 @@ const Kabupaten = mongoose.model('Kabupaten', {
         trim: true
     }
 })
+
+kabupatenSchema.virtual('distriks', {
+    ref: 'Distrik',
+    localField: '_id',
+    foreignField: 'kabupaten'
+})
+
+const Kabupaten = mongoose.model('Kabupaten', kabupatenSchema)
 
 module.exports = Kabupaten

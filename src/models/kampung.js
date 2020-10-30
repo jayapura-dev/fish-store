@@ -1,24 +1,20 @@
-const mongoose = require('mangoose');
-const validator = require('validator');
+const mongoose = require('mongoose');
 
-const Kampung = mongoose.model('Kampung', {
+const kampungSchema = new mongoose.Schema({
     kode_kampung: {
         type: String,
-        required: [true, 'Masukan Kode Wilayah Kampung'],
-        maxlength: 4
-        minlength: 2
+        required: [true, 'Masukan Kode Wilayah Kampung']
     },
-    kode_distrik: {
-        type: String,
-        required: [true, 'Masukan Kode Distrik'],
-        maxlength: 4
-        minlength: 2
+    distrik: {
+        type: mongoose.Schema.ObjectId,
+        required: [true, 'distrik tidak boleh kosong']
     },
     nama_kampung: {
         type: String,
-        required: [true, 'Masukan Nama Kampung'],
-        trim: true
+        required: [true, 'nama kampung tidak boleh kosong']
     }
 })
 
-module.exports = Distrik
+const Kampung = mongoose.model('Kampung', kampungSchema)
+
+module.exports = Kampung

@@ -25,17 +25,32 @@
 
 ## Available Features :
   - [x] Dashboard
+  - [x] Login
 
 ---
 
-## API DOC :
+## ROUTES DOC (API) :
 
 ---
+* Kabupaten 
+  - [GET](http://localhost:8000/kabupaten)
+  - [POST](http://localhost:8000/kabupaten)
+
+* Distrik
+  - [GET](http://localhost:8000/distrik)
+  - [POST](http://localhost:8000/distrik)
+
 
 ## Development Process :
 
 * 23/10/2020
- - 
+  - Setup Middleware [Solved]
+  - Setup Routes [Solved]
+  - create Model, Kabupaten, Distrik, Kampung [Solved]
+  - Connect Routes to Monggo with Mongoose [Solved]
 
+* 30/10/2020
+  - Create POST Function Distrik, Kabupaten Kampung [Solved]
+  - Create GET Function Distrik, Kabupaten [Solved]
 
 
